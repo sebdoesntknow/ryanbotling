@@ -1,7 +1,8 @@
 {
     "plugins": [
         "flowtype",
-        "flow-vars"
+        "flow-vars",
+        "flowtype-errors"
     ],
     "env": {
         "browser": false,
@@ -41,6 +42,7 @@
             "error",
             "always"
         ],
+        "flowtype-errors/show-errors": 2,
         "flowtype/delimiter-dangle": [
             2,
             "only-multiline"
