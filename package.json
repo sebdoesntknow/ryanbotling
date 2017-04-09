@@ -19,7 +19,6 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-plugin-flow-vars": "latest",
     "eslint-plugin-flowtype": "^2.30.4",
