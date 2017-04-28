@@ -4,6 +4,9 @@ node_modules/
 # ssl stuff
 ssl/
 
+# built js (un-annotated js)
+dist/
+
 # others
 *.log*
 logs/
