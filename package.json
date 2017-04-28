@@ -6,7 +6,9 @@
   "author": "cricket",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^1.6.3"
+    "https": "^1.0.0",
+    "node-fetch": "^1.6.3",
+    "url": "^0.11.0"
   },
   "scripts": {
     "build": "flow-remove-types src -d lib -p",
