@@ -156,6 +156,8 @@ function createHTTPServer(token: string, port: number): Object {
       res.writeHead(400, {"Content-Type": "application/json"});
       res.end("Invalid URL or method, aborted.");
     } else {
+      console.log("Token and method are ok, proceeding...");
+      console.log(JSON.parse(res.body));
       res.writeHead(200, {"Content-Type": "application/json"});
       res.end("OK");
 >>>>>>> cdf23d8... Updated .gitignore to add tools into repo
