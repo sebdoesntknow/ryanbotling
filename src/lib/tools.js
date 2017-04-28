@@ -55,7 +55,7 @@ function createHTTPServer(token: string, port: number): Object {
       res.end("Invalid URL or method, aborted.");
     } else {
       console.log("Token and method are ok, proceeding...");
-      console.log(JSON.parse(res.body));
+      console.log(res.body);
       res.writeHead(200, {"Content-Type": "application/json"});
       res.end("OK");
     }
