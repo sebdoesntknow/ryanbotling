@@ -1,9 +1,6 @@
 # node
 node_modules/
 
-# build
-lib/
-
 # ssl stuff
 ssl/
 
