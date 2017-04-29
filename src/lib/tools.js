@@ -3,6 +3,20 @@
 const constants = require("./constants");
 
 /**
+ * Check if provided string is a valid JSON, stop process otherwise
+ * @param  {string} string
+ * @return {void}
+ */
+function checkJSON(res: Object, str: string): void {
+  try {
+    JSON.parse(str);
+  } catch(e) {
+    res.statusCode = 400;
+    throw res.end(`Invalid JSON: ${e}`);
+  }
+}
+
+/**
  * Send request to TG api to create a webhook to use with our bot
  * Requests must be made in the following format: https://api.telegram.org/bot<token>/METHOD_NAME
  * @param  {String} token: Token string provided by telegram api
@@ -51,17 +65,16 @@ function createHTTPServer(token: string, port: number): Object {
 
     req.on("error", (err) => {
       console.error(err);
-      res.statusCode(500);
-      throw res.end("Internal server error:", err);
+      throw new Error("Something went wrong, aborted:", err);
     });
 
     if (tokenInUrl === token && method === "POST") {
       req.on("data", (chunk) => {
+        checkJSON(res, chunk);
         Object.assign(body, JSON.parse(chunk));
       })
         .on("end", () => {
           res.writeHead(200, {"Content-Type": "application/json"});
-          console.log({body});
           return res.end("OK");
         });
     } else {
