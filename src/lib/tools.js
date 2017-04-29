@@ -50,8 +50,9 @@ function createHTTPServer(token: string, port: number): Object {
     let body: Object = {};
 
     req.on("error", (err) => {
-      console.log("Error ocurred, aborting!");
       console.error(err);
+      res.statusCode(500);
+      return res.end("Internal server error");
     });
 
     if (tokenInUrl === token && method === "POST") {
@@ -59,8 +60,8 @@ function createHTTPServer(token: string, port: number): Object {
         Object.assign(body, JSON.parse(chunk));
       })
         .on("end", () => {
-          console.log({body});
           res.writeHead(200, {"Content-Type": "application/json"});
+          console.log({body});
           return res.end("OK");
         });
     } else {
