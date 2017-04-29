@@ -41,11 +41,11 @@ function getWebhookInfo(token: string): () => mixed {
  * @param  {String} domain: domain string to the host which will act as webhook (https://....:8443/<token>/)
  * @return {Promise}
  */
-function createTelegramWebhook(token: string, domain: string, port: number): () => mixed {
+function createTelegramWebhook(token: string, domain: string): () => mixed {
   let fetch = require("node-fetch");
 
   let whUrl: string = `https://api.telegram.org/bot${token}/setWebhook`;
-  let receiverUrl: string = `https://${domain}:${port}/${token}/`;
+  let receiverUrl: string = `https://${domain}/${token}/`;
 
   let postBody = {
     url: receiverUrl
