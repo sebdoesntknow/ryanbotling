@@ -52,7 +52,7 @@ function createHTTPServer(token: string, port: number): Object {
     req.on("error", (err) => {
       console.error(err);
       res.statusCode(500);
-      return res.end("Internal server error");
+      throw res.end("Internal server error:", err);
     });
 
     if (tokenInUrl === token && method === "POST") {
