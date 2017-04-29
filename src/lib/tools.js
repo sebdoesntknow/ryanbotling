@@ -17,13 +17,31 @@ function checkJSON(res: Object, str: string): void {
 }
 
 /**
+ * Get webhook information from TG API
+ * @param  {string} token
+ * @return {Promise}
+ */
+function getWebhookInfo(token: string): () => mixed {
+  let fetch = require("node-fetch");
+  let infoUrl = `https://api.telegram.org/bot${token}/getWebhookInfo`;
+  
+  return fetch(infoUrl)
+    .then((resp) => {
+      console.log("Webhook information:", {resp});
+    })
+    .catch((err) => {
+      throw new Error("Something went wrong while getting webhook information:", err);
+    });
+}
+
+/**
  * Send request to TG api to create a webhook to use with our bot
  * Requests must be made in the following format: https://api.telegram.org/bot<token>/METHOD_NAME
  * @param  {String} token: Token string provided by telegram api
  * @param  {String} domain: domain string to the host which will act as webhook (https://....:8443/<token>/)
- * @return {Object}
+ * @return {Promise}
  */
-function createTelegramWebhook(token: string, domain: string, port: number): Object {
+function createTelegramWebhook(token: string, domain: string, port: number): () => mixed {
   let fetch = require("node-fetch");
 
   let whUrl: string = `https://api.telegram.org/bot${token}/setWebhook`;
@@ -88,5 +106,6 @@ function createHTTPServer(token: string, port: number): Object {
 
 module.exports = {
   createHTTPServer,
-  createTelegramWebhook
+  createTelegramWebhook,
+  getWebhookInfo
 };
