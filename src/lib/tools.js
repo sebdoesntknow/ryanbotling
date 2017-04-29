@@ -74,6 +74,7 @@ function createHTTPServer(token: string, port: number): Object {
         Object.assign(body, JSON.parse(chunk));
       })
         .on("end", () => {
+          console.log({body});
           res.writeHead(200, {"Content-Type": "application/json"});
           return res.end("OK");
         });
