@@ -170,6 +170,7 @@ function createHTTPServer(token: string, port: number): Object {
       })
         .on("end", () => {
           console.log({body});
+          res.writeHead(200, {"Content-Type": "application/json"});
           return res.end("OK");
         });
     } else {
