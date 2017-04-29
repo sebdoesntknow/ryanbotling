@@ -41,11 +41,11 @@ function getWebhookInfo(token: string): () => mixed {
  * @param  {String} domain: domain string to the host which will act as webhook (https://....:8443/<token>/)
  * @return {Promise}
  */
-function createTelegramWebhook(token: string, domain: string): () => mixed {
+function createTelegramWebhook(token: string, domain: string, port: number): () => mixed {
   let fetch = require("node-fetch");
 
   let whUrl: string = `https://api.telegram.org/bot${token}/setWebhook`;
-  let receiverUrl: string = `https://${domain}/${token}/`;
+  let receiverUrl: string = `https://${domain}:${port}/${token}/`;
 
   let postBody = {
     url: receiverUrl
@@ -53,7 +53,7 @@ function createTelegramWebhook(token: string, domain: string): () => mixed {
 
   return fetch(whUrl, { method: "POST", body: postBody })
     .then((resp) => {
-      console.log("TG API reached:", resp);
+      console.log("TG API reached, creating webhook:", resp);
     })
     .catch((err) => {
       let error = new Error("Something went wrong when trying to connect to TG api:", err);
@@ -61,6 +61,30 @@ function createTelegramWebhook(token: string, domain: string): () => mixed {
     });
 }
 
+/**
+ * Delete TG webhook through calling the setWebhook API method with an empty URL
+ * @param  {String} token
+ * @return {Promise}
+ */
+function deleteTelegramWebhook(token: string): () => mixed {
+  let fetch = require("node-fetch");
+
+  let whUrl: string = `https://api.telegram.org/bot${token}/deleteWebhook`;
+  let receiverUrl: string = ""; // Send empty string as url;
+
+  let postBody = {
+    url: receiverUrl
+  };
+
+  return fetch(whUrl, { method: "POST", body: postBody })
+    .then((resp) => {
+      console.log("TG API reached to delete webhook:", resp);
+    })
+    .catch((err) => {
+      let error = new Error("Something went wrong when trying to connect to TG api:", err);
+      console.log(error);
+    });  
+}
 
 /**
  * Create http server using node http lib.
@@ -107,5 +131,6 @@ function createHTTPServer(token: string, port: number): Object {
 module.exports = {
   createHTTPServer,
   createTelegramWebhook,
-  getWebhookInfo
+  getWebhookInfo,
+  deleteTelegramWebhook
 };
