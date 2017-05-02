@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
+<<<<<<< HEAD
   "presets": ["es2015", "flow"],
+=======
+  "presets": ["es2015"],
+>>>>>>> 900376e... Babel/eslint/flow setup complete
+=======
+  "presets": ["es2015", "flow"],
+>>>>>>> 550bd33... Successfully exchanged data with TG bot api
   "plugins": ["transform-object-rest-spread", "transform-flow-strip-types"]
 }

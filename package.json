@@ -6,12 +6,32 @@
   "author": "cricket",
   "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
+<<<<<<< HEAD
     "https": "^1.0.0",
     "node-fetch": "^1.6.3",
     "url": "^0.11.0"
   },
   "scripts": {
     "build": "flow-remove-types src -d dist -p",
+<<<<<<< HEAD
+=======
+    "node-fetch": "^1.6.3"
+=======
+    "https": "^1.0.0",
+    "node-fetch": "^1.6.3",
+    "url": "^0.11.0"
+>>>>>>> 1f7369b... Created tools.js with webhook setup functions
+  },
+  "scripts": {
+<<<<<<< HEAD
+    "build": "babel src/ -D lib/",
+>>>>>>> 900376e... Babel/eslint/flow setup complete
+=======
+    "build": "flow-remove-types src -d lib -p",
+>>>>>>> 550bd33... Successfully exchanged data with TG bot api
+=======
+>>>>>>> cdf23d8... Updated .gitignore to add tools into repo
     "prepublish": "yarn run build"
   },
   "devDependencies": {
@@ -20,12 +40,32 @@
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
+<<<<<<< HEAD
+<<<<<<< HEAD
     "babel-preset-flow": "^6.23.0",
+=======
+>>>>>>> 900376e... Babel/eslint/flow setup complete
+=======
+    "babel-preset-flow": "^6.23.0",
+<<<<<<< HEAD
+    "babel-preset-react": "^6.24.1",
+>>>>>>> 550bd33... Successfully exchanged data with TG bot api
+=======
+>>>>>>> 2719d9a... Deps cleanup
     "eslint": "^3.19.0",
     "eslint-plugin-flow-vars": "latest",
     "eslint-plugin-flowtype": "^2.30.4",
     "eslint-plugin-flowtype-errors": "^3.0.3",
+<<<<<<< HEAD
+<<<<<<< HEAD
     "flow-bin": "^0.43.1",
     "flow-remove-types": "^1.2.0"
+=======
+    "flow-bin": "^0.43.1"
+>>>>>>> 900376e... Babel/eslint/flow setup complete
+=======
+    "flow-bin": "^0.43.1",
+    "flow-remove-types": "^1.2.0"
+>>>>>>> 550bd33... Successfully exchanged data with TG bot api
   }
 }
