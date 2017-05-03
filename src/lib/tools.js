@@ -2,6 +2,11 @@
 const constants = require("./constants");
 
 /**
+ * TODO: Create socket file maybe? So the bot could connect
+ * and retrieve data as soon as it comes
+ */
+
+/**
  * Check if provided string is a valid JSON, stop process otherwise
  * @param  {string} string
  * @return {void}
@@ -92,13 +97,14 @@ function deleteTelegramWebhook(token: string): () => mixed {
 function createHTTPServer(token: string, port: number): Object {
   let http = require("https");
   let fs = require("fs");
+  let net = require("net");
 
   const options = {
     key: fs.readFileSync(constants.SSL_KEY),
     cert: fs.readFileSync(constants.SSL_CERT)
   };
 
-  return http.createServer(options, (req: Object, res: Object) => {
+  return http.createServer(options, (req: Object, res: Object): void => {
     let url: string = req.url;
     let tokenInUrl: string = url.split("/")[1];
     let method: string = req.method;
