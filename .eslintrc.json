@@ -1,17 +1,8 @@
 {
     "plugins": [
         "flowtype",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "flow-vars",
         "flowtype-errors"
-=======
-        "flow-vars"
->>>>>>> 900376e... Babel/eslint/flow setup complete
-=======
-        "flow-vars",
-        "flowtype-errors"
->>>>>>> 550bd33... Successfully exchanged data with TG bot api
     ],
     "env": {
         "browser": false,
@@ -51,14 +42,7 @@
             "error",
             "always"
         ],
-<<<<<<< HEAD
-<<<<<<< HEAD
         "flowtype-errors/show-errors": 2,
-=======
->>>>>>> 900376e... Babel/eslint/flow setup complete
-=======
-        "flowtype-errors/show-errors": 2,
->>>>>>> 550bd33... Successfully exchanged data with TG bot api
         "flowtype/delimiter-dangle": [
             2,
             "only-multiline"

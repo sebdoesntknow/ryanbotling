@@ -1,7 +1,5 @@
 # node
 node_modules/
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 # ssl stuff
 ssl/
@@ -9,31 +7,7 @@ ssl/
 # built js (un-annotated js)
 dist/
 
-<<<<<<< HEAD
 # others
 *.log*
 logs/
 config/
-=======
->>>>>>> 900376e... Babel/eslint/flow setup complete
-=======
-
-<<<<<<< HEAD
-# build
-lib/
-<<<<<<< HEAD
->>>>>>> 550bd33... Successfully exchanged data with TG bot api
-=======
-
-=======
->>>>>>> cdf23d8... Updated .gitignore to add tools into repo
-# ssl stuff
-ssl/
-
-=======
->>>>>>> baf84ee... Updated .gitignore to remove dist/ dir from sources
-# others
-*.log*
-logs/
-config/
->>>>>>> 1f7369b... Created tools.js with webhook setup functions
